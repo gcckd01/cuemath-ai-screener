@@ -1,3 +1,50 @@
+
+
+# 🎙️ AI Tutor Screener
+
+A full-stack, voice-activated AI screening tool built for the **Cuemath AI Builder Challenge**. 
+
+[cite_start]This application conducts automated, conversational interviews with prospective math tutors and evaluates them on critical soft skills (clarity, patience, warmth, and the ability to simplify complex concepts)[cite: 307, 308, 311].
+
+### 🔗 Quick Links
+* **Live Application:** [https://cuemath-ai-screener.vercel.app/]
+* **Video Walkthrough:** [https://www.loom.com/share/817dd1a06d5344c8a97a9325429b4df7]
+
+---
+
+## 🛠️ Tech Stack
+* **Frontend:** Next.js (React), Tailwind CSS
+* **Backend / AI Engine:** Meta Llama 3.1 (8B) via Groq API
+* **Deployment:** Vercel
+
+---
+
+## 🧠 Architecture & Engineering Decisions
+
+As an AI/NLP systems developer, I focused heavily on ensuring the evaluation output was objective, strictly structured, and highly available.
+
+### 1. The Groq Migration (High Availability)
+The application was initially prototyped using Google's Gemini API on the free tier. During stress testing, the backend encountered severe rate-limiting and `503 Server Overloaded` errors. Knowing that a recruitment screener must be highly available, I executed a live migration to run **Meta's Llama 3.1 model on Groq's custom inferencing hardware**. This pivot eliminated latency and ensured lightning-fast conversational interactions.
+
+### 2. Zero-Hallucination Evaluation (Prompt Engineering)
+A major challenge with smaller open-source LLMs is their tendency to "hallucinate" positive quotes or deviate from strict grading rubrics. To solve this:
+* **Temperature Control:** The evaluation endpoint runs at `temperature: 0.1` to strip out creativity and enforce strict, analytical grading.
+* [cite_start]**Strict JSON Enforcement:** The model is constrained to output pure JSON, extracting exact, word-for-word quotes from the transcript to justify its scoring[cite: 320]. 
+
+### 3. Security First
+All LLM inferences are executed strictly on the server-side. [cite_start]API keys are managed securely via environment variables and are completely hidden from the browser and public repositories[cite: 348].
+
+---
+
+## 🚀 Running Locally
+
+To run this application on your own machine:
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/YourUsername/cuemath-ai-screener.git](https://github.com/YourUsername/cuemath-ai-screener.git)
+   cd cuemath-ai-screener
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
