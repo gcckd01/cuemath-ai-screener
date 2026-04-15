@@ -7,7 +7,7 @@ A full-stack, voice-activated AI screening tool built for the **Cuemath AI Build
 [cite_start]This application conducts automated, conversational interviews with prospective math tutors and evaluates them on critical soft skills (clarity, patience, warmth, and the ability to simplify complex concepts)[cite: 307, 308, 311].
 
 ### 🔗 Quick Links
-* **Live Application:** [https://cuemath-ai-screener.vercel.app/]
+* **Live Application:** [https://cuemath-ai-screener.vercel.app/] (use chrome browser)
 * **Video Walkthrough:** [https://www.loom.com/share/817dd1a06d5344c8a97a9325429b4df7]
 
 ---
